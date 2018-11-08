@@ -13,6 +13,9 @@ const CONF = {
             /^\/api\/v1\/login/,
             /^\/api\/v1\/addUser/
         ]
+    },
+    url: {
+        prefix: '/api/v1'
     }
 };
 
