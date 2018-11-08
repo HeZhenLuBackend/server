@@ -10,8 +10,8 @@ const CONF = {
     token: {
         secret: 'jwt demo',
         path: [
-            /^\/login/,
-            /^\/addUser/
+            /^\/api\/v1\/login/,
+            /^\/api\/v1\/addUser/
         ]
     }
 };
