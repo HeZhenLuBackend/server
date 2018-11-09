@@ -12,7 +12,7 @@ console.log('\n======================================');
 console.log('开始初始化数据库...');
 
 // 初始化 SQL 文件路径
-const INIT_DB_FILE = path.join(__dirname, './paint_it.sql');
+const INIT_DB_FILE = path.join(__dirname, './hezhenlu.sql');
 
 const DB = require('knex')({
     client: 'mysql',
