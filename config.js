@@ -20,7 +20,7 @@ const CONF = {
     },
     validate_mailer: {
         host: 'smtp.126.com',
-        port: 25,
+        port: 465,
         user: 'hezhenlu_validate@126.com',
         pass: 'hezhenlu16',
         from: 'hezhenlu_validate@126.com'
