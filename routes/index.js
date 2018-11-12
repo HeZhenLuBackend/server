@@ -8,7 +8,9 @@ const { url: url } = require('../config')
 
 router.get(url.prefix + '/login', controllers.login);
 
-router.get(url.prefix + '/addUser', controllers.addUser);
+router.get(url.prefix + '/user/identify', controllers.getIdentifyCode);
+
+router.get(url.prefix + '/user/register', controllers.addUser);
 
 router.get(url.prefix + '/getUserInfo', controllers.getUserInfo);
 

@@ -1,30 +1,98 @@
 const mysql = require('../middleware/mysql');
+const token_verify = require('../middleware/token_verify');
+
 
 module.exports = async (ctx) => {
 
-    ctx.body = {
-        msg: 'addUser'
-    }
-/*
-    const username = ctx.query.username,
-          password = ctx.query.password;
+    const email = ctx.query.email,
+          nickname = ctx.query.nickname,
+          password = ctx.query.password,
+          identifyCode = ctx.query.identifyCode;
 
+    const token = ctx.header.authorization;
+
+    //检查表单
+    if (!email || !nickname || !password || !identifyCode) {
+        ctx.body = {
+            code: -1,
+            data: {
+                msg: '缺少表单信息'
+            }
+        };
+        return;
+    }
+
+    //检查token
+    if (token === undefined || !token) {
+        ctx.body = {
+            code: -2,
+            msg: 'token为空，尝试重新获取验证码'
+        };
+        return;
+    }
+
+
+    // 解密，获取payload
+    console.log(token);
+    let payload = await token_verify(token);
+
+    console.log(payload);
+
+    if (payload.identifyEmail !== email) {
+        ctx.body = {
+            code: -3,
+            msg: '邮箱不符'
+        };
+        console.log('邮箱不符');
+        return;
+    }
+
+    if (parseInt(payload.identifyCode) !== parseInt(identifyCode)) {
+        ctx.body = {
+            code: -4,
+            msg: '验证码错误'
+        };
+        console.log('验证码错误');
+        return;
+    }
+
+    //插入数据库
     try {
 
-        ctx.body = await mysql('users')
+        const countHasUser = await mysql('user')
+            .count('* as hasUser')
+            .where({
+                email: email
+            });
+
+
+        if (!!countHasUser[0].hasUser) {
+            ctx.body = {
+                code: -5,
+                msg: '邮箱已注册'
+            };
+            return;
+        }
+
+        await mysql('user')
             .insert({
-                username: username,
+                email: email,
+                nickname: nickname,
                 password: password
-            })
-            .returning('user_id');
+            });
+
+        ctx.body = {
+            code: 1,
+            msg: '注册成功'
+        }
+
     } catch (e) {
         ctx.state = {
-            code: -1,
+            code: -6,
             data: {
                 msg: e.sqlMessage  //数据库报错信息
             }
         }
     }
-*/
 
 };
