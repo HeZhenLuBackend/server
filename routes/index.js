@@ -4,9 +4,9 @@
 const router = require('koa-router')();
 const uploader = require('../middleware/uploader');
 const controllers = require('../controllers');
-const { url: url } = require('../config')
+const { url: url } = require('../config');
 
-router.get(url.prefix + '/login', controllers.login);
+router.get(url.prefix + '/user/login', controllers.login);
 
 router.get(url.prefix + '/user/identify', controllers.getIdentifyCode);
 

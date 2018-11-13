@@ -4,37 +4,43 @@ const config = require('../config');
 
 module.exports = async (ctx) => {
 
-    ctx.body = {
-        msg: 'login'
-    }
-
-/*
-    const username = ctx.query.username,
+    const email = ctx.query.email,
           password = ctx.query.password;
 
-    await mysql('users').select('user_id').where({
-        username: username,
+    if (!email || !password) {
+        ctx.body = {
+            code: -3,
+            msg: '缺少表单信息'
+        };
+        return;
+    }
+
+    const results = await mysql('user').select('uid', 'nickname').where({
+        email: email,
         password: password
-    })
-        .then(res => {
-            if(res[0].user_id) {
-                let userToken = {
-                    user_id: res[0].user_id,
-                    username: username
-                };
-                const token = jwt.sign(userToken, config.token.secret, {expiresIn: '6h'});  //token签名 有效期为6小时
-                ctx.body = {
-                    message: '获取token成功',
-                    code: 1,
-                    token
-                }
-            } else {
-                ctx.body = {
-                    message: '参数错误',
-                    code: -1
-                }
-            }
-        });
-*/
+    });
+
+    console.log(results);
+
+    if (results.length === 0) {
+        ctx.body = {
+            code: -1,
+            msg: '密码错误或用户不存在'
+        };
+        return;
+    }
+
+    let userInfo = {
+        uid: results[0].uid,
+        nickname: results[0].nickname
+    };
+
+    const token = jwt.sign(userInfo, config.token.secret, {expiresIn: '6h'});
+
+    ctx.body = {
+        code: 1,
+        msg: '登录成功',
+        token
+    }
 
 };

@@ -3,7 +3,7 @@ const {validate_mailer: validate_mailer} = require('../../config');
 
 const validateTransport = nodemailer.createTransport({
     host: validate_mailer.host,
-    secureConnection: false,
+    secureConnection: true,
     port: validate_mailer.port,
     auth: {
         user: validate_mailer.user,

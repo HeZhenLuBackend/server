@@ -4,13 +4,13 @@ const CONF = {
         port: 3306,
         user: 'root',
         db: 'hezhenlu',
-        pass: '123456',
+        pass: 'Hezhenlu16',
         char: 'utf8mb4'
     },
     token: {
         secret: 'jwt demo',
         path: [
-            /^\/api\/v1\/login/,
+            /^\/api\/v1\/user\/login/,
             /^\/api\/v1\/user\/identify/,
             /^\/api\/v1\/user\/register/
         ]
