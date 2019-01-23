@@ -12,7 +12,10 @@ const CONF = {
         path: [
             /^\/api\/v1\/user\/login/,
             /^\/api\/v1\/user\/identify/,
-            /^\/api\/v1\/user\/register/
+            /^\/api\/v1\/user\/register/,
+            /^\/api\/v1\/passage\/hot/,
+            /^\/api\/v1\/passage\/recommend/,
+            /^\/api\/v1\/passage\/addHot/
         ]
     },
     url: {

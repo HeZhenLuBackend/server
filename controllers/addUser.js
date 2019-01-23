@@ -4,10 +4,10 @@ const token_verify = require('../middleware/token_verify');
 
 module.exports = async (ctx) => {
 
-    const email = ctx.query.email,
-          nickname = ctx.query.nickname,
-          password = ctx.query.password,
-          identifyCode = ctx.query.identifyCode;
+    const email = ctx.request.body.email,
+          nickname = ctx.request.body.nickname,
+          password = ctx.request.body.password,
+          identifyCode = ctx.request.body.identifyCode;
 
     const token = ctx.header.authorization;
 
@@ -43,7 +43,6 @@ module.exports = async (ctx) => {
             code: -3,
             msg: '邮箱不符'
         };
-        console.log('邮箱不符');
         return;
     }
 
@@ -52,7 +51,6 @@ module.exports = async (ctx) => {
             code: -4,
             msg: '验证码错误'
         };
-        console.log('验证码错误');
         return;
     }
 
