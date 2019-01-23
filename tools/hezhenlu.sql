@@ -27,10 +27,15 @@ DROP TABLE IF EXISTS `article`;
 CREATE TABLE `article` (
   `aid` int(32) NOT NULL AUTO_INCREMENT,
   `content` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `shortcontent` varchar(1000),
   `title` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   `top` tinyint(1) NOT NULL DEFAULT 0,
   `cover` varchar(1000),
+  `script` varchar(1000),
+  `newssource` varchar(1000),
+  `type` varchar(1000),
+  `date` varchar(100),
   PRIMARY KEY (`aid`),
   UNIQUE KEY (`title`),
   KEY `aid` (`aid`) USING BTREE
@@ -59,6 +64,25 @@ CREATE TABLE `star` (
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`sid`),
   KEY `index_uid_aid` (`uid`, `aid`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS `collect`;
+CREATE TABLE `collect` (
+  `cid` int(32) NOT NULL AUTO_INCREMENT,
+  `uid` int(32) NOT NULL,
+  `aid` int(32) NOT NULL,
+  `deleted` tinyint(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`cid`),
+  KEY `index_uid_aid` (`uid`, `aid`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS `keyword`;
+CREATE TABLE `keyword` (
+  `kid` int(32) NOT NULL AUTO_INCREMENT,
+  `aid` int(32) NOT NULL,
+  `kvalue` varchar(100) NOT NULL,
+  PRIMARY KEY (`kid`),
+  KEY `index_aid_kvalue` (`aid`, `kvalue`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 DROP TABLE IF EXISTS `donate`;
