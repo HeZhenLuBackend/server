@@ -33,7 +33,7 @@ CREATE TABLE `article` (
   `cover` varchar(1000),
   `script` varchar(1000),
   `type` varchar(1000),
-  `date` varchar(100)
+  `date` varchar(100),
   PRIMARY KEY (`aid`),
   UNIQUE KEY (`title`),
   KEY `aid` (`aid`) USING BTREE
