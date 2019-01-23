@@ -4,8 +4,8 @@ const config = require('../config');
 
 module.exports = async (ctx) => {
 
-    const email = ctx.query.email,
-          password = ctx.query.password;
+    const email = ctx.request.body.email,
+          password = ctx.request.body.password;
 
     if (!email || !password) {
         ctx.body = {

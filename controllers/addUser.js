@@ -4,10 +4,10 @@ const token_verify = require('../middleware/token_verify');
 
 module.exports = async (ctx) => {
 
-    const email = ctx.query.email,
-          nickname = ctx.query.nickname,
-          password = ctx.query.password,
-          identifyCode = ctx.query.identifyCode;
+    const email = ctx.request.body.email,
+          nickname = ctx.request.body.nickname,
+          password = ctx.request.body.password,
+          identifyCode = ctx.request.body.identifyCode;
 
     const token = ctx.header.authorization;
 

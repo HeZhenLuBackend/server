@@ -4,7 +4,7 @@ const config = require('../config');
 
 module.exports = async (ctx) => {
 
-    const email = ctx.query.email;
+    const email = ctx.request.body.email;
 
     if (!email) {
         ctx.body = {
