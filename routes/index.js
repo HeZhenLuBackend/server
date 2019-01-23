@@ -14,4 +14,6 @@ router.get(url.prefix + '/user/register', controllers.addUser);
 
 router.get(url.prefix + '/getUserInfo', controllers.getUserInfo);
 
+router.get(url.prefix + '/passage/hot', controllers.getHot);
+
 module.exports = router;
