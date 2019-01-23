@@ -31,6 +31,9 @@ CREATE TABLE `article` (
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   `top` tinyint(1) NOT NULL DEFAULT 0,
   `cover` varchar(1000),
+  `script` varchar(1000),
+  `type` varchar(1000),
+  `date` varchar(100),
   PRIMARY KEY (`aid`),
   UNIQUE KEY (`title`),
   KEY `aid` (`aid`) USING BTREE
