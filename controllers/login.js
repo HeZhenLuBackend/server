@@ -20,7 +20,6 @@ module.exports = async (ctx) => {
         password: password
     });
 
-    console.log(results);
 
     if (results.length === 0) {
         ctx.body = {

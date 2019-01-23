@@ -43,7 +43,6 @@ module.exports = async (ctx) => {
             code: -3,
             msg: '邮箱不符'
         };
-        console.log('邮箱不符');
         return;
     }
 
@@ -52,7 +51,6 @@ module.exports = async (ctx) => {
             code: -4,
             msg: '验证码错误'
         };
-        console.log('验证码错误');
         return;
     }
 
