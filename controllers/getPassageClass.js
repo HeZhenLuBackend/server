@@ -48,11 +48,11 @@ module.exports = async (ctx) =>{
         }
         //   passage[i].add(keyword);
         passage[i].keywords = a;
-        let collectCount = await mysql('article').join('collect', 'article.aid', 'collect.aid').where({'article.type': articleClass}, {'collect.delete': 0}, {'article.aid':id});
+        let collectCount = await mysql('article').join('collect', 'article.aid', 'collect.aid').where({'collect.delete': 0}).andWhere({'article.aid':id});
         let collect = collectCount.length;
-        let starCount = await mysql('article').join('star', 'article.aid', 'star.aid').where({'article.type': articleClass}, {'star.deleted': 0}, {'article.aid':id});
+        let starCount = await mysql('article').join('star', 'article.aid', 'star.aid').where({'star.deleted': 0}).andWhere({'article.aid':id});
         let star = starCount.length;
-        let commentCount = await mysql('article').join('comment', 'article.aid', 'comment.aid').where({'article.type': articleClass}, {'comment.deleted': 0}, {'article.aid':id});
+        let commentCount = await mysql('article').join('comment', 'article.aid', 'comment.aid').where({'comment.deleted': 0}).andWhere({'article.aid':id});
         //let retjson = await passage.json();
         let comment = commentCount.length;
         passage[i].collectCount = collect;

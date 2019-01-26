@@ -94,3 +94,64 @@ CREATE TABLE `donate` (
   PRIMARY KEY (`did`),
   KEY `index_uid` (`uid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS `course`;
+CREATE TABLE `course` (
+  `cid` int(32) NOT NULL AUTO_INCREMENT,
+  `content` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `deleted` tinyint(1) NOT NULL DEFAULT 0,
+  `top` tinyint(1) NOT NULL DEFAULT 0,
+  `cover` varchar(1000),
+  `videourl` varchar(1000),
+  `coursesource` varchar(1000),
+  `type` varchar(1000),
+  `date` varchar(100),
+  PRIMARY KEY (`cid`),
+  UNIQUE KEY (`title`),
+  KEY `cid` (`cid`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS `coursecomment`;
+CREATE TABLE `coursecomment` (
+  `ccid` int(32) NOT NULL AUTO_INCREMENT,
+  `parent_ccid` int(32) DEFAULT 0,
+  `cid` int(32) NOT NULL,
+  `uid` int(32) NOT NULL,
+  `parent_uid` int(32) DEFAULT NULL,
+  `content` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `top` tinyint(1) NOT NULL DEFAULT 0,
+  `deleted` tinyint(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`ccid`),
+  KEY `ccid` (`ccid`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS `coursestar`;
+CREATE TABLE `coursestar` (
+  `sid` int(32) NOT NULL AUTO_INCREMENT,
+  `uid` int(32) NOT NULL,
+  `cid` int(32) NOT NULL,
+  `deleted` tinyint(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`sid`),
+  KEY `index_uid_cid` (`uid`, `cid`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS `coursecollect`;
+CREATE TABLE `coursecollect` (
+  `ccid` int(32) NOT NULL AUTO_INCREMENT,
+  `uid` int(32) NOT NULL,
+  `cid` int(32) NOT NULL,
+  `deleted` tinyint(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`ccid`),
+  KEY `index_uid_cid` (`uid`, `cid`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS `coursekeyword`;
+CREATE TABLE `coursekeyword` (
+  `kid` int(32) NOT NULL AUTO_INCREMENT,
+  `cid` int(32) NOT NULL,
+  `kvalue` varchar(100) NOT NULL,
+  PRIMARY KEY (`kid`),
+  KEY `index_cid_kvalue` (`cid`, `kvalue`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

@@ -16,7 +16,8 @@ const CONF = {
             /^\/api\/v1\/passage\/hot/,
             /^\/api\/v1\/passage\/recommend/,
             /^\/api\/v1\/passage\/addHot/,
-            /^\/api\/v1\/passage\/class/
+            /^\/api\/v1\/passage\/class/,
+            /^\/api\/v1\/course\/class/
         ]
     },
     url: {
