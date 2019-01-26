@@ -16,6 +16,7 @@ router.get(url.prefix + '/getUserInfo', controllers.getUserInfo);
 
 router.get(url.prefix + '/passage/hot', controllers.getHot);
 
-router.get(url.prefix + '/comment/latest', controllers.getLatestComment);
+router.post(url.prefix + '/passage/class', controllers.getClass);
+
 
 module.exports = router;
