@@ -18,5 +18,6 @@ router.get(url.prefix + '/passage/hot', controllers.getHot);
 
 router.post(url.prefix + '/passage/class', controllers.getClass);
 
+router.get(url.prefix + '/passage/latest',controllers.getLatestPassage);
 
 module.exports = router;
