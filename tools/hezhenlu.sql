@@ -26,7 +26,7 @@ CREATE TABLE `vip` (
 DROP TABLE IF EXISTS `article`;
 CREATE TABLE `article` (
   `aid` int(32) NOT NULL AUTO_INCREMENT,
-  `content` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` longtext,
   `shortcontent` varchar(1000),
   `title` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
@@ -35,7 +35,7 @@ CREATE TABLE `article` (
   `script` varchar(1000),
   `newssource` varchar(1000),
   `type` varchar(1000),
-  `date` varchar(100),
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`aid`),
   UNIQUE KEY (`title`),
   KEY `aid` (`aid`) USING BTREE
@@ -98,7 +98,7 @@ CREATE TABLE `donate` (
 DROP TABLE IF EXISTS `course`;
 CREATE TABLE `course` (
   `cid` int(32) NOT NULL AUTO_INCREMENT,
-  `content` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` longtext,
   `title` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   `top` tinyint(1) NOT NULL DEFAULT 0,
@@ -106,7 +106,7 @@ CREATE TABLE `course` (
   `videourl` varchar(1000),
   `coursesource` varchar(1000),
   `type` varchar(1000),
-  `date` varchar(100),
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`cid`),
   UNIQUE KEY (`title`),
   KEY `cid` (`cid`) USING BTREE
