@@ -18,6 +18,10 @@ router.get(url.prefix + '/passage/hot', controllers.getHot);
 
 router.post(url.prefix + '/passage/class', controllers.getPassageClass);
 
+router.get(url.prefix + '/passage/latest',controllers.getLatestPassage);
+
 router.post(url.prefix + '/course/class', controllers.getCourseClass);
+
+router.get(url.prefix + '/comment/latest', controllers.getLatestComment);
 
 module.exports = router;
