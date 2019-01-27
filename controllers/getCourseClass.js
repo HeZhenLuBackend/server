@@ -3,7 +3,7 @@ const bodyParser = require('koa-bodyparser');
 
 module.exports = async (ctx) =>{
     let postData = ctx.request.body;
-    let courseClass = postData.class;
+    let courseClass = postData.className;
 
     let course = await mysql('course').where({'type':courseClass}).andWhere({'deleted':0})
         .select({courseId:'course.cid'}, {title:'title'}, {courseSource:'coursesource'}, {courseClass:'type'}, {postTime:'date'}, {pictureURL:'cover'},
