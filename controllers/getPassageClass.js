@@ -34,7 +34,7 @@ module.exports = async (ctx) =>{
     var a = parsePostData(ctx);
     var b = parseQueryStr(a);*/
     let postData = ctx.request.body;
-    let articleClass = postData.class;
+    let articleClass = postData.className;
     let passage = await mysql('article').where({'type':articleClass})
         .select({passageId:'article.aid'}, {title:'title'}, {newsSource:'newssource'}, {newsClass:'type'}, {postTime:'date'}, {pictureURL:'cover'},
             {contentShort:'shortcontent'});
