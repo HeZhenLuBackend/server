@@ -48,7 +48,7 @@ module.exports = async (ctx) =>{
         }
         //   passage[i].add(keyword);
         passage[i].keywords = a;
-        let collectCount = await mysql('article').join('collect', 'article.aid', 'collect.aid').where({'article.delete': 0}).andWhere({'article.aid':id});
+        let collectCount = await mysql('article').join('collect', 'article.aid', 'collect.aid').where({'collect.deleted': 0}).andWhere({'article.aid':id});
         let collect = collectCount.length;
         let starCount = await mysql('article').join('star', 'article.aid', 'star.aid').where({'star.deleted': 0}).andWhere({'article.aid':id});
         let star = starCount.length;
