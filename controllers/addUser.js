@@ -15,9 +15,7 @@ module.exports = async (ctx) => {
     if (!email || !nickname || !password || !identifyCode) {
         ctx.body = {
             code: -1,
-            data: {
-                msg: '缺少表单信息'
-            }
+            msg: '缺少表单信息'
         };
         return;
     }
@@ -85,11 +83,9 @@ module.exports = async (ctx) => {
         }
 
     } catch (e) {
-        ctx.state = {
+        ctx.body = {
             code: -6,
-            data: {
-                msg: e.sqlMessage  //数据库报错信息
-            }
+            msg: e.sqlMessage  //数据库报错信息
         }
     }
 

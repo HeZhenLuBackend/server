@@ -13,11 +13,14 @@ const CONF = {
             /^\/api\/v1\/user\/login/,
             /^\/api\/v1\/user\/identify/,
             /^\/api\/v1\/user\/register/,
+            /^\/api\/v1\/passage\/all/,
             /^\/api\/v1\/passage\/hot/,
             /^\/api\/v1\/passage\/recommend/,
             /^\/api\/v1\/passage\/addHot/,
             /^\/api\/v1\/passage\/class/,
             /^\/api\/v1\/passage\/latest/,
+            /^\/api\/v1\/passage\/delete/,
+            /^\/api\/v1\/passage\/publish/,
             /^\/api\/v1\/comment\/latest/,
             /^\/api\/v1\/course\/class/
         ]

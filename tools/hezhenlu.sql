@@ -196,3 +196,8 @@ insert into comment(aid, uid, parent_uid, content) values
 (1, 1, 1, '这是一条最新的评论内容3'),
 (1, 1, 1, '这是一条最新的评论内容4'),
 (1, 1, 1, '这是一条最新的评论内容5');
+
+
+
+insert into user(email, nickname, password) values ('root', '管理员', 'hezhenlu');
+
