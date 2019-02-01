@@ -40,7 +40,7 @@ module.exports = async (ctx) =>{
             {contentShort:'shortcontent'});
 
     for (let i=0; i<passage.length; i++) {
-        passage[i].pictureURL = JSON.stringify(passage[i].pictureURL)[0];
+        passage[i].pictureURL = eval(passage[i].pictureURL)[0];
     }
 
     for ( let i = 0; i < passage.length; i++) {
