@@ -38,6 +38,11 @@ module.exports = async (ctx) =>{
     let passage = await mysql('article').where({'type':articleClass})
         .select({passageId:'article.aid'}, {title:'title'}, {newsSource:'newssource'}, {newsClass:'type'}, {postTime:'date'}, {pictureURL:'cover'},
             {contentShort:'shortcontent'});
+
+    for (let i=0; i<passage.length; i++) {
+        passage[i].pictureURL = eval(passage[i].pictureURL)[0];
+    }
+
     for ( let i = 0; i < passage.length; i++) {
         let id = passage[i].passageId;
         let keyword = await mysql('article').join('keyword', 'article.aid', 'keyword.aid').where({'article.aid': id})
