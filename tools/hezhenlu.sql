@@ -169,21 +169,21 @@ insert into article(content, shortcontent, cover, title, type, script) values
 insert into course(content, cover, title, videourl, type, coursesource) values
 (
 '概况 2017年10月郑佳雯老师上《媒介案例分析》课程时，开设了《NJU核真录》新闻公众号',
-'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548578486715&di=b0ef5a6c22195018e8c69cc90600d8f6&imgtype=0&src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FMLmkAa4Zrsem0RMFepUOpyAWUueRzV9KN8KuLbhTEnPTXYP6uDhWLgVichcTOOzBc0iaWyormFuLW67MzqRibQc3g%2F640%3Fwx_fmt%3Djpeg',
+'[https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548578486715&di=b0ef5a6c22195018e8c69cc90600d8f6&imgtype=0&src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FMLmkAa4Zrsem0RMFepUOpyAWUueRzV9KN8KuLbhTEnPTXYP6uDhWLgVichcTOOzBc0iaWyormFuLW67MzqRibQc3g%2F640%3Fwx_fmt%3Djpeg]',
 '2017年度报告 | 南大“核真录”1',
 'https://v.youku.com/v_show/id_XMzA5MTIzNTU0MA==.html?spm=a2h0k.11417342.soresults.dtitle',
 '种类1',
 '优酷'),
 (
 '概况 2017年10月郑佳雯老师上《媒介案例分析》课程时，开设了《NJU核真录》新闻公众号',
-'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548578486715&di=b0ef5a6c22195018e8c69cc90600d8f6&imgtype=0&src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FMLmkAa4Zrsem0RMFepUOpyAWUueRzV9KN8KuLbhTEnPTXYP6uDhWLgVichcTOOzBc0iaWyormFuLW67MzqRibQc3g%2F640%3Fwx_fmt%3Djpeg',
+'[https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548578486715&di=b0ef5a6c22195018e8c69cc90600d8f6&imgtype=0&src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FMLmkAa4Zrsem0RMFepUOpyAWUueRzV9KN8KuLbhTEnPTXYP6uDhWLgVichcTOOzBc0iaWyormFuLW67MzqRibQc3g%2F640%3Fwx_fmt%3Djpeg]',
 '2017年度报告 | 南大“核真录”1',
 'https://v.youku.com/v_show/id_XMzA5MTIzNTU0MA==.html?spm=a2h0k.11417342.soresults.dtitle',
 '种类1',
 '优酷'),
 (
 '概况 2017年10月郑佳雯老师上《媒介案例分析》课程时，开设了《NJU核真录》新闻公众号',
-'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548578486715&di=b0ef5a6c22195018e8c69cc90600d8f6&imgtype=0&src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FMLmkAa4Zrsem0RMFepUOpyAWUueRzV9KN8KuLbhTEnPTXYP6uDhWLgVichcTOOzBc0iaWyormFuLW67MzqRibQc3g%2F640%3Fwx_fmt%3Djpeg',
+'[https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548578486715&di=b0ef5a6c22195018e8c69cc90600d8f6&imgtype=0&src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FMLmkAa4Zrsem0RMFepUOpyAWUueRzV9KN8KuLbhTEnPTXYP6uDhWLgVichcTOOzBc0iaWyormFuLW67MzqRibQc3g%2F640%3Fwx_fmt%3Djpeg]',
 '2017年度报告 | 南大“核真录”1',
 'https://v.youku.com/v_show/id_XMzA5MTIzNTU0MA==.html?spm=a2h0k.11417342.soresults.dtitle',
 '种类1',
@@ -199,5 +199,5 @@ insert into comment(aid, uid, parent_uid, content) values
 
 
 
-insert into user(email, nickname, password) values ('root', '管理员', 'hezhenlu');
+insert into user(email, nickname, password) values ('njuhzl18', '管理员', 'njuhzl19zz');
 
