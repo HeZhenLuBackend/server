@@ -9,6 +9,7 @@ module.exports = async (ctx) => {
           keyword2 = ctx.request.body.keyword2,
           keyword3 = ctx.request.body.keyword3,
           type = ctx.request.body.type,
+          newsSource = ctx.request.body.newsSource,
           picUrls = ctx.request.body.picUrls;
 
     //检查表单
@@ -26,11 +27,16 @@ module.exports = async (ctx) => {
         let aids = await mysql('article')
             .insert({
                 content: content,
-                script: abstract,
+                shortcontent: abstract,
                 title: title,
                 type: type,
-                cover: picUrls
+                cover: picUrls,
+                newssource: newsSource
             }).returning('aid');
+
+        await mysql('articleread').insert({
+            aid: aids[0]
+        });
 
         if (keyword1) {
             await mysql('keyword')
