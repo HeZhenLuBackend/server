@@ -31,7 +31,7 @@ module.exports = async (ctx) =>{
 
     await mysql('articleread').where('aid', passageID)
         .update({
-            readcount: readcounts[0] + 1,
+            readcount: readcounts[0].readcount + 1,
             thisKeyIsSkipped: undefined
         });
 
