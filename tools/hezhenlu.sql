@@ -31,7 +31,7 @@ CREATE TABLE `article` (
   `title` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   `top` tinyint(1) NOT NULL DEFAULT 0,
-  `cover` varchar(1000),
+  `cover` longtext,
   `script` varchar(1000),
   `newssource` varchar(1000),
   `type` varchar(1000),

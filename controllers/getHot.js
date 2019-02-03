@@ -6,6 +6,7 @@ module.exports = async (ctx) =>{
     for (let i=0; i<result.length; i++) {
         result[i].coverPicture = eval(result[i].coverPicture)[0];
     }
+    
     ctx.body = result;
 
 };

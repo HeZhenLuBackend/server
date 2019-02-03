@@ -21,6 +21,7 @@ const CONF = {
             /^\/api\/v1\/passage\/latest/,
             /^\/api\/v1\/passage\/delete/,
             /^\/api\/v1\/passage\/publish/,
+            /^\/api\/v1\/passage\/detail/,
             /^\/api\/v1\/comment\/latest/,
             /^\/api\/v1\/course\/class/
         ]

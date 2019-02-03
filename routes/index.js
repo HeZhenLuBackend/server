@@ -26,6 +26,8 @@ router.post(url.prefix + '/passage/delete', controllers.delPassage);
 
 router.post(url.prefix + '/passage/publish', controllers.addPassage);
 
+router.post(url.prefix + '/passage/detail', controllers.getPassageDetail);
+
 router.post(url.prefix + '/course/class', controllers.getCourseClass);
 
 router.get(url.prefix + '/comment/latest', controllers.getLatestComment);
