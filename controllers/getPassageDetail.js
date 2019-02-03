@@ -18,7 +18,7 @@ module.exports = async (ctx) =>{
 
     for (let i=0; i<keywords.length; i++) {
         if (keywords[i]) {
-            result.push(keywords[i]);
+            result.keywords.push(keywords[i]);
         }
     }
 
