@@ -37,7 +37,7 @@ module.exports = async (ctx) =>{
     let articleClass = postData.className;
     let passage = await mysql('article').where({'type':articleClass})
         .select({passageId:'article.aid'}, {title:'title'}, {newsSource:'newssource'}, {newsClass:'type'}, {postTime:'date'}, {pictureURL:'cover'},
-            {contentShort:'shortcontent'});
+            {abstract:'shortcontent'});
 
     for (let i=0; i<passage.length; i++) {
         passage[i].pictureURL = eval(passage[i].pictureURL)[0];
