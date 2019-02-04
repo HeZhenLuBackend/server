@@ -37,7 +37,7 @@ module.exports = async (ctx) => {
     const token = jwt.sign(userInfo, config.token.secret, {expiresIn: '6h'});
 
 
-    if (email === 'root') {
+    if (email === 'njuhzl18') {
         ctx.body = {
             code: 2,
             msg: '管理员登录成功',
