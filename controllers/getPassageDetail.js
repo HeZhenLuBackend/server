@@ -1,4 +1,5 @@
 const mysql = require('../middleware/mysql');
+const date_parser = require('../middleware/date_parser');
 
 module.exports = async (ctx) =>{
 
@@ -14,7 +15,7 @@ module.exports = async (ctx) =>{
 
     let result = results[0];
 
-    result.postTime = dateParser(result.postTime);
+    result.postTime = date_parser(result.postTime);
 
     result.picUrls = eval(result.picUrls);
     result.keywords = [];
@@ -36,19 +37,3 @@ module.exports = async (ctx) =>{
         });
 
 };
-
-
-function dateParser(timestamp) {
-    var interval = ( Date.parse(new Date()) - Date.parse(timestamp) ) / 1000;
-
-    if (interval < 3600) {
-        return '刚刚';
-    }
-    if ((interval/3600) < 24) {
-        return parseInt(interval/3600) + '小时前';
-    }
-    if ((interval/86400) < 8) {
-        return parseInt(interval/86400) + '天前';
-    }
-    return timestamp.toString().substr(5, 5);
-}
