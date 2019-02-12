@@ -24,5 +24,5 @@ function dateParser(timestamp) {
     if ((interval/86400) < 8) {
         return parseInt(interval/86400) + '天前';
     }
-    return timestamp.substr(5, 5);
+    return timestamp.toString().substr(5, 5);
 }
