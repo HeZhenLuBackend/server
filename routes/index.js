@@ -32,4 +32,6 @@ router.post(url.prefix + '/course/class', controllers.getCourseClass);
 
 router.get(url.prefix + '/comment/latest', controllers.getLatestComment);
 
+router.post(url.prefix + '/passage/comments', controllers.getPassageComments);
+
 module.exports = router;

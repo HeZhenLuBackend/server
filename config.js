@@ -23,7 +23,8 @@ const CONF = {
             /^\/api\/v1\/passage\/publish/,
             /^\/api\/v1\/passage\/detail/,
             /^\/api\/v1\/comment\/latest/,
-            /^\/api\/v1\/course\/class/
+            /^\/api\/v1\/course\/class/,
+            /^\/api\/v1\/passage\/comments/
         ]
     },
     url: {
