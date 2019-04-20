@@ -34,4 +34,6 @@ router.get(url.prefix + '/comment/latest', controllers.getLatestComment);
 
 router.post(url.prefix + '/passage/comments', controllers.getPassageComments);
 
+router.post(url.prefix + '/passage/comment', controllers.addComment);
+
 module.exports = router;
