@@ -6,7 +6,7 @@ module.exports = async (ctx) =>{
     const passageID = ctx.request.body.passageID;
 
     let results = await mysql('article')
-        .select('title',{newsSource:'newssource'},{newsClass:'type'},{postTime:'date'},{picUrls:'cover'},'content')
+        .select('title',{newsSource:'newssource'},{newsClass:'type'},{abstract:'shortcontent'},{postTime:'date'},{picUrls:'cover'},'content')
         .where('aid', passageID);
 
     let keywords = await mysql('keyword')

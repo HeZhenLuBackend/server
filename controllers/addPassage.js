@@ -2,7 +2,8 @@ const mysql = require('../middleware/mysql');
 
 module.exports = async (ctx) => {
 
-    const title = ctx.request.body.title,
+    const id = ctx.request.body.id,
+          title = ctx.request.body.title,
           abstract = ctx.request.body.abstract,
           content = ctx.request.body.content,
           keyword1 = ctx.request.body.keyword1,
@@ -21,22 +22,78 @@ module.exports = async (ctx) => {
         return;
     }
 
-    //插入数据库
-    try {
+    if (id == -1) {
+        //插入数据库
+        try {
 
-        let aids = await mysql('article')
-            .insert({
+            let aids = await mysql('article')
+                .insert({
+                    content: content,
+                    shortcontent: abstract,
+                    title: title,
+                    type: type,
+                    cover: picUrls,
+                    newssource: newsSource
+                }).returning('aid');
+
+            await mysql('articleread').insert({
+                aid: aids[0]
+            });
+
+            if (keyword1) {
+                await mysql('keyword')
+                    .insert({
+                        aid: aids[0],
+                        kvalue: keyword1
+                    });
+            }
+
+            if (keyword2) {
+                await mysql('keyword')
+                    .insert({
+                        aid: aids[0],
+                        kvalue: keyword2
+                    });
+            }
+
+            if (keyword3) {
+                await mysql('keyword')
+                    .insert({
+                        aid: aids[0],
+                        kvalue: keyword3
+                    });
+            }
+
+            ctx.body = {
+                code: 1,
+                msg: '成功'
+            }
+
+        } catch (e) {
+            ctx.body = {
+                code: 0,
+                msg: e.sqlMessage  //数据库报错信息
+            }
+        }
+    }
+
+    else {
+
+        mysql('article')
+            .where('aid', id)
+            .update({
                 content: content,
                 shortcontent: abstract,
                 title: title,
                 type: type,
                 cover: picUrls,
-                newssource: newsSource
-            }).returning('aid');
+                newssource: newsSource,
+                thisKeyIsSkipped: undefined
+            });
 
-        await mysql('articleread').insert({
-            aid: aids[0]
-        });
+        await mysql('keyword')
+            .where({aid: id})
+            .del();
 
         if (keyword1) {
             await mysql('keyword')
@@ -67,11 +124,8 @@ module.exports = async (ctx) => {
             msg: '成功'
         }
 
-    } catch (e) {
-        ctx.body = {
-            code: 0,
-            msg: e.sqlMessage  //数据库报错信息
-        }
     }
+
+
 
 };
